@@ -3,27 +3,35 @@
 
 <body>
   <div id="root"></div>
-
-  <!-- 🐨 add React and ReactDOM on the page.
-       💰 Here are script tags that'll do the job:
   <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
-  -->
-
   <script type="module">
     const rootElement = document.getElementById('root')
+    const element = React.createElement(
+      'div',
+      {className: 'container'},
+      React.createElement('span', null, 'Hello'),
+      ' ',
+      React.createElement('span', null, 'World'),
+    )
+    console.log(element)
 
-    // You're going to re-implement this code using React!
-    // 💣 So go ahead and delete this implementation (or comment it out for now)
-    // These three lines are similar to React.createElement
-    const element = document.createElement('div')
-    element.textContent = 'Hello World' // 💰 in React, you set this with the "children" prop
-    element.className = 'container' // 💰 in React, this is also called the "className" prop
-    // This is similar to ReactDOM.createRoot().render()
-    rootElement.append(element)
+    /*
+      or with children props!
 
-    // 🐨 Please re-implement the regular document.createElement code above
-    // with these React API calls
-    // 💰 The example in the markdown file should be a good hint for you.
+      const element = React.createElement('div', {
+        className: 'container',
+        children: [
+          React.createElement('span', null, 'Hello'),
+          ' ',
+          React.createElement('span', null, 'World'),
+        ],
+      })
+
+      NOTE: event with the first approach 3 elements are placed within the props.children react element object
+      NOTE: this approach will give us warning about unique key prop
+    */
+
+    ReactDOM.createRoot(rootElement).render(element)
   </script>
 </body>
