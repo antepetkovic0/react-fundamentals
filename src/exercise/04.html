@@ -1,6 +1,3 @@
-<!-- Creating custom components -->
-<!-- http://localhost:3000/isolated/exercise/04.html -->
-
 <body>
   <div id="root"></div>
   <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
@@ -8,19 +5,6 @@
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
   <script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
   <script type="text/babel">
-    // 🐨 Make a function called `message` which returns the JSX we want to share
-    // const PropTypes = {
-    //   string(props, propName, componentName) {
-    //     console.log(props, propName, componentName)
-    //     const type = typeof props[propName]
-    //     if (type !== 'string') {
-    //       return new Error(
-    //         `Component ${componentName} expected prop "${propName}" to be "string". Instead we received the type "${type}".`,
-    //       )
-    //     }
-    //   },
-    // }
-
     function Message({subject, greeting}) {
       return (
         <div className="messsage">
@@ -29,32 +13,6 @@
       )
     }
 
-    // 🐨 use that function in place of the divs below with:
-    // 💰 {message({children: 'Hello World'})} {message({children: 'Goodbye World'})}
-    // const element = (
-    //   <div className="container">
-    //     {message({children: 'Hello World'})}
-    //     {message({children: 'Goodbye World'})}
-    //   </div>
-    // )
-
-    // extra credit 1
-    // const element = (
-    //   <div className="container">
-    //     {React.createElement(message, {children: 'Hello World'})}
-    //     {React.createElement(message, {children: 'Goodbye World'})}
-    //   </div>
-    // )
-
-    // extra credit 2
-    // const element = (
-    //   <div className="container">
-    //     <Message>Hello World</Message>
-    //     <Message>Goodbye World</Message>
-    //   </div>
-    // )
-
-    // extra credit 3
     Message.propTypes = {
       subject: PropTypes.string.isRequired,
       greeting: PropTypes.string.isRequired,
@@ -66,8 +24,6 @@
         <Message subject="World" greeting="Goodbye" />
       </>
     )
-
-    // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
     ReactDOM.createRoot(document.getElementById('root')).render(element)
   </script>
 </body>
